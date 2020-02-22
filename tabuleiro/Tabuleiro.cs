@@ -1,6 +1,6 @@
 namespace Xadrez_Console.tabuleiro
 {
-    public class Tabuleiro
+    class Tabuleiro
     {
         public int linhas { get; set; }
         public int colunas { get; set; }
@@ -10,6 +10,10 @@ namespace Xadrez_Console.tabuleiro
             this.linhas = linhas;
             this.colunas = colunas;
             this.pecas = new Peca[linhas, colunas];
+        }
+
+        public Peca peca(int linha, int coluna){
+            return this.pecas[linha, coluna];
         }
     }
 }
