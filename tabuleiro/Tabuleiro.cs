@@ -15,5 +15,10 @@ namespace Xadrez_Console.tabuleiro
         public Peca peca(int linha, int coluna){
             return this.pecas[linha, coluna];
         }
+
+        public void colocarPeca(Peca p, Posicao pos){
+            this.pecas[pos.linha, pos.coluna] = p;
+            p.posicao = pos;
+        }
     }
 }
