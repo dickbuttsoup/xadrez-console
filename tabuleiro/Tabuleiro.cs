@@ -18,7 +18,8 @@ namespace Xadrez_Console.tabuleiro
             return this.pecas[linha, coluna];
         }
 
-        public bool existePeca(Posicao pos){
+        public bool existePeca(Posicao pos)
+        {
             validarPosicao(pos);
             return peca(pos) != null;
         }
@@ -29,18 +30,21 @@ namespace Xadrez_Console.tabuleiro
 
         public void colocarPeca(Peca p, Posicao pos)
         {
-            if(existePeca(pos)){
+            if (existePeca(pos))
+            {
                 throw new TabuleiroException("Já existe uma peça nessa psoção");
             }
             this.pecas[pos.linha, pos.coluna] = p;
             p.posicao = pos;
         }
 
-        public Peca retirarPeca(Posicao pos){
-            if(peca(pos)==null){
+        public Peca retirarPeca(Posicao pos)
+        {
+            if (peca(pos) == null)
+            {
                 return null;
             }
-            Peca aux  = peca(pos);
+            Peca aux = peca(pos);
             aux.posicao = null;
             pecas[pos.linha, pos.coluna] = null;
             return aux;

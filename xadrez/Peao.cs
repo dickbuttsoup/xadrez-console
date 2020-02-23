@@ -7,7 +7,18 @@ namespace Xadrez_Console.xadrez
         {
 
         }
-        public override string ToString(){
+        private bool podeMover(Posicao pos)
+        {
+            Peca p = tab.peca(pos);
+            return p == null || p.cor != this.cor;
+        }
+        public override bool[, ] movimentosPossiveis()
+        {
+            bool[, ] mat = new bool[tab.linhas, tab.colunas];
+            return mat;
+        }
+        public override string ToString()
+        {
             return "P";
         }
     }
