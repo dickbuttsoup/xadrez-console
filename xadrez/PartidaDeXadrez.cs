@@ -43,7 +43,13 @@ namespace Xadrez_Console.xadrez
                 throw new TabuleiroException("A peça de origem escolhida não é sua!");
             }   
             if(!tab.peca(pos).existeMovimentosPossiveis()){
-                throw new TabuleiroException("Não há movimentos possiceis para a peça de origem escolhida!");
+                throw new TabuleiroException("Não há movimentos possiveis para a peça de origem escolhida!");
+            }
+        }
+
+        public void validarPosicaoDeDestino(Posicao origem, Posicao destino){
+            if(!tab.peca(origem).podeMoverPara(destino)){
+throw new TabuleiroException("Posição de destino inválida!");
             }
         }
 
