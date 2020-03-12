@@ -1,7 +1,7 @@
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using Xadrez_Console.tabuleiro;
 using Xadrez_Console.xadrez;
 namespace Xadrez_Console
@@ -14,13 +14,22 @@ namespace Xadrez_Console
             imprimirTabuleiro(partida.tab);
             imprimirPecasCapturadas(partida);
             Console.WriteLine("\nTurno " + partida.turno);
-            Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
-            if (partida.xeque){
-                Console.WriteLine("XEQUE!");
+            if (!partida.terminada)
+            {
+                Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+                if (partida.xeque)
+                {
+                    Console.WriteLine("XEQUE!");
+                }
+            }
+            else{
+                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine("Vencedor: " + partida.jogadorAtual);
             }
         }
 
-        public static void imprimirPecasCapturadas(PartidaDeXadrez partida){
+        public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
+        {
             Console.Write("\nPeças captudadas: ");
             Console.Write("Brancas:");
             imprimirConjunto(partida.pecasCapturadas(Cor.Branca));
@@ -31,9 +40,11 @@ namespace Xadrez_Console
             Console.ForegroundColor = aux;
         }
 
-        public static void imprimirConjunto(HashSet<Peca> conjunto ){
+        public static void imprimirConjunto(HashSet<Peca> conjunto)
+        {
             Console.Write("[");
-            foreach(Peca x in conjunto){
+            foreach (Peca x in conjunto)
+            {
                 Console.Write(x + " ");
             }
             Console.WriteLine("]");
